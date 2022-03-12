@@ -8,6 +8,7 @@ $amount = filter_var($input->amount, FILTER_SANITIZE_SPECIAL_CHARS);
 
 try {
     $db = openDB();
+    
     $query = $db->prepare('insert into item(description, amount) values (:description, :amount)');
     $query->bindValue(':description', $description, PDO::PARAM_STR);
     $query->bindValue(':amount', $amount, PDO::PARAM_STR);
